@@ -1,3 +1,6 @@
-window.binarySearchTree = {
-  //fixme
+var makeBinarySearchTree = function(){
+  var binarySearchTree = {
+    //fixme
+  };
+  return binarySearchTree;
 }
