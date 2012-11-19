@@ -10,7 +10,6 @@ describe("linkedList", function() {
   });
 
   it("should have a method named 'insert'", function() {
-    expect(Object.keys(linkedList)).toContain("insert");
     expect(linkedList.insert).toEqual(jasmine.any(Function));
   });
 
