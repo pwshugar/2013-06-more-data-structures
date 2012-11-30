@@ -13,5 +13,9 @@ describe("linkedList", function() {
     expect(linkedList.insert).toEqual(jasmine.any(Function));
   });
 
+  it("should have a method named 'contains'", function() {
+    expect(linkedList.contains).toEqual(jasmine.any(Function));
+  });
+
   // add more tests here to test the functionality of linkedList
 });
