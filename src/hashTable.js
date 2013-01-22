@@ -1,22 +1,26 @@
 // Note: don't use an object to store the inserted elements.
 var makeHashTable = function(){
+  var storage = [];
   var hashTable = {
-    hashFunction: hashFunction
     //fixme
+    set: function(key, value){
+    },
+    get: function(key){
+    }
   };
   return hashTable;
-}
+};
 
 
-// DON'T WORRY ABOUT CODE BELOW HERE
+// This is a "hashing function". You don't need to worry about it, just use it to turn any key into a pseudo-random key
 
-var hashFunction = function(str, maxResult){
+var getIndexBelowMaxForKey = function(str, max){
   var hash = 0;
   if (str.length == 0) return hash;
   for (i = 0; i < str.length; i++) {
-    char = str.charCodeAt(i);
-    hash = ((hash<<5) - hash) + char;
+    hash = (hash<<5) - hash;
+    hash = hash + str.charCodeAt(i);
     hash = hash & hash; // Convert to 32bit integer
   }
-  return hash % maxResult;
-}
+  return hash % max;
+};
