@@ -1,4 +1,4 @@
-var maketree = function(){
+var makeTree = function(){
   var tree = {
     //fixme
   };
