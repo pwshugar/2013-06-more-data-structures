@@ -3,10 +3,6 @@ var makeHashTable = function(){
   var storage = [];
   var hashTable = {
     //fixme
-    set: function(key, value){
-    },
-    get: function(key){
-    }
   };
   return hashTable;
 };
