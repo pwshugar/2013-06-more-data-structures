@@ -5,17 +5,16 @@ describe("binarySearchTree", function() {
     binarySearchTree = makeBinarySearchTree();
   });
 
-  it("should have a root", function() {
-    expect(Object.keys(binarySearchTree)).toContain("root");
-  });
-
-  it("should have a method named 'insert'", function() {
+  it("should have a method named 'children'", function() {
     expect(binarySearchTree.insert).toEqual(jasmine.any(Function));
   });
 
-  it("should have a method named 'search'", function() {
+  it("should have a method named 'addChild'", function() {
     expect(binarySearchTree.search).toEqual(jasmine.any(Function));
   });
 
+  it("should have a method named 'contains'", function() {
+    expect(binarySearchTree.search).toEqual(jasmine.any(Function));
+  });
   // add more tests here to test the functionality of binarySearchTree
 });
