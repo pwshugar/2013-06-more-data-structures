@@ -6,15 +6,15 @@ describe("binarySearchTree", function() {
   });
 
   it("should have a method named 'children'", function() {
-    expect(binarySearchTree.insert).toEqual(jasmine.any(Function));
+    expect(binarySearchTree.children).toEqual(jasmine.any(Function));
   });
 
   it("should have a method named 'addChild'", function() {
-    expect(binarySearchTree.search).toEqual(jasmine.any(Function));
+    expect(binarySearchTree.addChild).toEqual(jasmine.any(Function));
   });
 
   it("should have a method named 'contains'", function() {
-    expect(binarySearchTree.search).toEqual(jasmine.any(Function));
+    expect(binarySearchTree.contains).toEqual(jasmine.any(Function));
   });
   // add more tests here to test the functionality of binarySearchTree
 });
