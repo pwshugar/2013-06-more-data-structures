@@ -1,7 +1,9 @@
 // Note: don't use an object to store the inserted elements.
 var makeHashTable = function(){
   var limit = 8;
-  var limitedStorage = makeLimitedStorage(limit);
+  var limitedArray = makeLimitedArray(limit);
+  // limitedArray.set(3, 'hi');
+  // limitedArray.get(3); // alerts 'hi'
 
   var hashTable = {};
   // fill out these methods
@@ -20,7 +22,7 @@ var makeHashTable = function(){
 
 
 /*
- * Do not edit the code below this line, except for bug fixes
+ * Do not edit the code below this line, unless you see a bug!
  */
 
 // This is a "hashing function". You don't need to worry about it, just use it to turn any key into an integer that is well-distributed across the range 0-max
@@ -34,20 +36,25 @@ var getIndexBelowMaxForKey = function(str, max){
 };
 
 
-// This data structure provides you limited storage array
+// This data structure provides you limited array array
 // It will ensure that you don't accidentally try to use up too much space
-var makeLimitedStorage = function(limit){
+var makeLimitedArray = function(limit){
   var storage = [];
 
-  var getterSetter = function(index, value){
-    if(typeof index !== 'number'){ throw new Error('setter requires a numeric index for its first argument'); }
-    if(limit <= index){ throw new Error('Error trying to access an over-the-limit index'); }
-    if(arguments.length === 1){
-      return storage[index];
-    }else{
-      storage[index] = value;
-    }
+  var limitedArray = {};
+  limitedArray.get = function(index){
+    checkLimit(index);
+    return storage[index];
+  };
+  limitedArray.set = function(index, value){
+    checkLimit(index);
+    storage[index] = value;
   };
 
-  return getterSetter;
+  var checkLimit = function(index){
+    if(typeof index !== 'number'){ throw new Error('setter requires a numeric index for its first argument'); }
+    if(limit <= index){ throw new Error('Error trying to access an over-the-limit index'); }
+  };
+
+  return limitedArray;
 };
