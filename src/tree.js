@@ -1,6 +1,14 @@
 var makeTree = function(){
-  var tree = {
-    //fixme
-  };
+  var tree = {};
+  tree.children = undefined;
+
   return tree;
-}
+};
+
+var treeMethods = {};
+
+treeMethods.addChild = function(){
+};
+
+treeMethods.contains = function(){
+};
