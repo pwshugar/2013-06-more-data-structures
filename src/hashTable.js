@@ -1,7 +1,8 @@
 // Note: don't use an object to store the inserted elements.
 var makeHashTable = function(){
   var limit = 8;
-  var limitedArray = makeLimitedArray(limit); // see notes below
+  var limitedArray = makeLimitedArray(limit); // You'll use this to implement 
+                                              // your hash table.  See below.
 
   var hashTable = {};
 
