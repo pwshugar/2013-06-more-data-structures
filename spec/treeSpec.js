@@ -5,16 +5,9 @@ describe("tree", function() {
     tree = makeTree();
   });
 
-  it("should have an array of children", function() {
-    expect(tree.children).toEqual(jasmine.any(Array));
-  });
-
-  it("should have a method named 'addChild'", function() {
+  it("should have methods named 'addChild' and 'contains'", function() {
     expect(tree.addChild).toEqual(jasmine.any(Function));
-  });
-
-  it("should have a method named 'traverse'", function() {
-    expect(tree.traverse).toEqual(jasmine.any(Function));
+    expect(tree.contains).toEqual(jasmine.any(Function));
   });
 
   // Add more tests here to test the functionality of tree.
