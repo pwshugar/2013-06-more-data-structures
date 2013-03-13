@@ -1,13 +1,12 @@
 var HashTable = function(){
-  this._limit = 8;
-
   // Use a limited array to store inserted elements.
   // It'll keep you from using too much space. Usage:
   //
   //   limitedArray.set(3, 'hi');
   //   limitedArray.get(3); // alerts 'hi'
   //
-  this._storage = makeLimitedArray(this._limit);
+  limit = 8;
+  this._storage = makeLimitedArray(limit);
 };
 
 HashTable.prototype.insert = function(){
