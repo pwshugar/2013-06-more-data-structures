@@ -5,15 +5,14 @@ describe("linkedList", function() {
     linkedList = makeLinkedList();
   });
 
-  it("should have a head", function() {
+  it("should have a head and tail", function() {
     expect(Object.keys(linkedList)).toContain("head");
+    expect(Object.keys(linkedList)).toContain("tail");
   });
 
-  it("should have a method named 'insert'", function() {
-    expect(linkedList.insert).toEqual(jasmine.any(Function));
-  });
-
-  it("should have a method named 'contains'", function() {
+  it("should have methods named 'addToTail', 'removeHead', and 'contains'", function() {
+    expect(linkedList.addToTail).toEqual(jasmine.any(Function));
+    expect(linkedList.removeHead).toEqual(jasmine.any(Function));
     expect(linkedList.contains).toEqual(jasmine.any(Function));
   });
 
