@@ -1,67 +1,24 @@
-// Note: don't use an object to store the inserted elements.
-var makeHashTable = function(){
-  var limit = 8;
-  var limitedArray = makeLimitedArray(limit); // You'll use this to implement 
-                                              // your hash table.  See below.
+var HashTable = function(){
+  this._limit = 8;
 
-  var hashTable = {};
-
-  // fill out these methods in a test-driven fashion
-  hashTable.insert = function(){
-  };
-
-  hashTable.retrieve = function(){
-  };
-
-  hashTable.remove = function(){
-  };
-
-  return hashTable;
+  // Use a limited array to store inserted elements.
+  // It'll keep you from using too much space. Usage:
+  //
+  //   limitedArray.set(3, 'hi');
+  //   limitedArray.get(3); // alerts 'hi'
+  //
+  this._storage = makeLimitedArray(limit);
 };
 
-
-/*
- * Do not edit the code below this line, unless you see a bug!
- */
-
-// This is a "hashing function". You don't need to worry about it, just use it to turn any key into an integer that is well-distributed across the range 0-max
-var getIndexBelowMaxForKey = function(str, max){
-  var hash = 0;
-  if (str.length == 0) { return hash; }
-  for (var i = 0; i < str.length; i++) {
-    var char = str.charCodeAt(i);
-    hash = ((hash<<5) - hash) + char;
-    hash = Math.abs(hash);
-    hash = hash & hash; //Convert to 32-bit integer
-  }
-  return hash % maxResult;
+HashTable.prototype.insert = function(){
 };
 
-
-// This class represents an array with limited functionality and a maximum size.
-// It will ensure that you don't accidentally try to use up too much space.
-//
-// Usage:
-//   limitedArray.set(3, 'hi');
-//   limitedArray.get(3); // returns 'hi'
-
-var makeLimitedArray = function(limit){
-  var storage = [];
-
-  var limitedArray = {};
-  limitedArray.get = function(index){
-    checkLimit(index);
-    return storage[index];
-  };
-  limitedArray.set = function(index, value){
-    checkLimit(index);
-    storage[index] = value;
-  };
-
-  var checkLimit = function(index){
-    if(typeof index !== 'number'){ throw new Error('setter requires a numeric index for its first argument'); }
-    if(limit <= index){ throw new Error('Error trying to access an over-the-limit index'); }
-  };
-
-  return limitedArray;
+HashTable.prototype.retrieve = function(){
 };
+
+HashTable.prototype.remove = function(){
+};
+
+// NOTE: For this code to work, you will NEED the code from hashTableHelpers.js
+// Start by loading those files up and playing with the functions it provides.
+// You don't need to understand how they work, only their interface is important to you
