@@ -27,11 +27,14 @@ var makeHashTable = function(){
 // This is a "hashing function". You don't need to worry about it, just use it to turn any key into an integer that is well-distributed across the range 0-max
 var getIndexBelowMaxForKey = function(str, max){
   var hash = 0;
+  if (str.length == 0) { return hash; }
   for (var i = 0; i < str.length; i++) {
-    hash = (hash<<5) + hash + str.charCodeAt(i);
-    hash = hash & hash; // Convert to 32bit integer
+    var char = str.charCodeAt(i);
+    hash = ((hash<<5) - hash) + char;
+    hash = Math.abs(hash);
+    hash = hash & hash; //Convert to 32-bit integer
   }
-  return hash % max;
+  return hash % maxResult;
 };
 
 
