@@ -1,13 +1,11 @@
 // Note: don't use an object to store the inserted elements.
 var makeHashTable = function(){
   var limit = 8;
-  var limitedArray = makeLimitedArray(limit);
-  // limitedArray.set(3, 'hi');
-  // limitedArray.get(3); // alerts 'hi'
+  var limitedArray = makeLimitedArray(limit); // see notes below
 
   var hashTable = {};
-  // fill out these methods
 
+  // fill out these methods in a test-driven fashion
   hashTable.insert = function(){
   };
 
@@ -36,8 +34,13 @@ var getIndexBelowMaxForKey = function(str, max){
 };
 
 
-// This data structure provides you limited array array
-// It will ensure that you don't accidentally try to use up too much space
+// This class represents an array with limited functionality and a maximum size.
+// It will ensure that you don't accidentally try to use up too much space.
+//
+// Usage:
+//   limitedArray.set(3, 'hi');
+//   limitedArray.get(3); // returns 'hi'
+
 var makeLimitedArray = function(limit){
   var storage = [];
 
