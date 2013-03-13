@@ -2,14 +2,11 @@ describe("hashTable", function() {
   var hashTable;
 
   beforeEach(function() {
-    hashTable = makeHashTable();
+    hashTable = new HashTable();
   });
 
-  it("should have a method named 'insert'", function() {
+  it("should have methods named 'insert' and 'retrieve", function() {
     expect(hashTable.insert).toEqual(jasmine.any(Function));
-  });
-
-  it("should have a method named 'retrieve'", function() {
     expect(hashTable.retrieve).toEqual(jasmine.any(Function));
   });
 

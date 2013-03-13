@@ -7,7 +7,7 @@ var HashTable = function(){
   //   limitedArray.set(3, 'hi');
   //   limitedArray.get(3); // alerts 'hi'
   //
-  this._storage = makeLimitedArray(limit);
+  this._storage = makeLimitedArray(this._limit);
 };
 
 HashTable.prototype.insert = function(){
