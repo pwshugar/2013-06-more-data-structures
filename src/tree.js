@@ -1,5 +1,6 @@
 var makeTree = function(){
   var tree = {};
+  tree.value = undefined;
   tree.children = undefined;
 
   return tree;
