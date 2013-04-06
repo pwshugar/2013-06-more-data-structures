@@ -1,9 +1,9 @@
 var makeTree = function(){
-  var tree = {};
-  tree.value = undefined;
-  tree.children = undefined;
+  var newTree = {};
+  newTree.value = undefined;
+  newTree.children = undefined;
 
-  return tree;
+  return newTree;
 };
 
 var treeMethods = {};
