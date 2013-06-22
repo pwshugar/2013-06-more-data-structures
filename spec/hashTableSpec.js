@@ -12,9 +12,9 @@ describe("hashTable", function() {
 
   it("should be able to insert a key value pair and retrieve it", function() {
     hashTable.insert('car', 'red');
-    hashTable.insert('cat', 'pink');
+    hashTable.insert('dog', 'pink');
     expect(hashTable.retrieve('car')).toEqual('red');
-    expect(hashTable.retrieve('cat')).toEqual('pink');
+    expect(hashTable.retrieve('dog')).toEqual('pink');
   });
 
   it("should return undefined when deleting a key and then retrieving it", function() {
