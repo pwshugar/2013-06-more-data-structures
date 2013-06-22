@@ -36,12 +36,26 @@ describe("tree", function() {
     tree.addChild('element2');
     tree.children[0].addChild('childElement1');
     tree.children[1].addChild('childElement2');
-    tree.children[1].children[0].addChild('childChildElement2');
+    tree.children[1].children[0].addChild('childChildElement1');
     expect(tree.contains('element1')).toEqual(true);
     expect(tree.contains('childElement1')).toEqual(true);
+    debugger;
     expect(tree.contains('childElement2')).toEqual(true);
-    expect(tree.contains('childChildElement2')).toEqual(true);
+    expect(tree.contains('childChildElement1')).toEqual(true);
     expect(tree.contains('noElement')).toEqual(false);
-  });
+ });
+
+  it("should remove nodes properly", function() {
+    tree.addChild('element1');
+    tree.addChild('element2');
+    tree.children[0].addChild('childElement1');
+    tree.children[1].addChild('childElement2');
+    tree.children[1].children[0].addChild('childChildElement1');
+    tree.children[1].children[0].addChild('childChildElement2');
+    tree.children[1].children[0].children[1].removeFromParent();
+    expect(tree.contains('childChildElement2')).toEqual(false);
+    tree.children[1].children[0].children[0].removeFromParent();
+    expect(tree.contains('childChildElement1')).toEqual(false);
+ });
 
 });
