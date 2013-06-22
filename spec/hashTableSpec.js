@@ -10,5 +10,27 @@ describe("hashTable", function() {
     expect(hashTable.retrieve).toEqual(jasmine.any(Function));
   });
 
+  it("should be able to insert a key value pair and retrieve it", function() {
+    hashTable.insert('car', 'red');
+    hashTable.insert('cat', 'pink');
+    expect(hashTable.retrieve('car')).toEqual('red');
+    expect(hashTable.retrieve('cat')).toEqual('pink');
+  });
+
+  it("should return undefined when deleting a key and then retrieving it", function() {
+    hashTable.insert('car', 'red');
+    console.log(hashTable.retrieve('car'));
+    expect(hashTable.retrieve('car')).toEqual('red');
+    hashTable.remove('car');
+    console.log(hashTable.retrieve('car'));
+    expect(hashTable.retrieve('car')).toEqual(undefined);
+  });
+
+  it("should be able to update the value of a given key", function() {
+    hashTable.insert('car', 'red');
+    hashTable.insert('car', 'green');
+    expect(hashTable.retrieve('car')).toEqual('green');
+  });
+
   // add more tests here to test the functionality of hashTable
 });
