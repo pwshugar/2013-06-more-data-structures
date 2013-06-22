@@ -19,7 +19,7 @@ describe("hashTable", function() {
 
   it("should return undefined when deleting a key and then retrieving it", function() {
     hashTable.insert('car', 'red');
-    console.log(hashTable.retrieve('car'));
+    console.log(hashTable.retrieve('car')) ;
     expect(hashTable.retrieve('car')).toEqual('red');
     hashTable.remove('car');
     console.log(hashTable.retrieve('car'));
@@ -32,5 +32,12 @@ describe("hashTable", function() {
     expect(hashTable.retrieve('car')).toEqual('green');
   });
 
+  it("should be able to handle collisions", function() {
+    hashTable._limit = 1;
+    hashTable.insert('car', 'red');
+    hashTable.insert('dog', 'green');
+    expect(hashTable.retrieve('car')).toEqual('red');
+    expect(hashTable.retrieve('dog')).toEqual('green');
+  });
   // add more tests here to test the functionality of hashTable
 });
