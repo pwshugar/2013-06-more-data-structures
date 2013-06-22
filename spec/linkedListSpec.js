@@ -10,7 +10,7 @@ describe("linkedList", function() {
     expect(Object.keys(linkedList)).toContain("tail");
   });
 
-  it("should have methods named 'addToTail', 'removeHead', and 'contains'", function() {
+  it("should have methods named 'addToTail', 'addToHead', 'removeHead', 'removeTail', and 'contains'", function() {
     expect(linkedList.addToTail).toEqual(jasmine.any(Function));
     expect(linkedList.removeHead).toEqual(jasmine.any(Function));
     expect(linkedList.contains).toEqual(jasmine.any(Function));
@@ -26,7 +26,7 @@ describe("linkedList", function() {
     expect(linkedList.head.value).toEqual('element');
   });
 
-  it("should update tail when adding a second node but not change head", function() {
+  it("'addToTail' should add a new node with the passed value to the tail of the list'", function() {
     linkedList.addToTail('element1');
     linkedList.addToTail('element2');
     expect(linkedList.head.value).toEqual('element1');
@@ -39,7 +39,7 @@ describe("linkedList", function() {
     expect(linkedList.head.next).toEqual(linkedList.tail);
   });
 
-  it("should be able to remove a node from the list, return its value, and update head", function() {
+  it("'removeHead' should remove the first node from the list and return its value'", function() {
     linkedList.addToTail('element1');
     linkedList.addToTail('element2');
     linkedList.addToTail('element3');
@@ -65,5 +65,27 @@ describe("linkedList", function() {
     expect(linkedList.contains('element2')).toEqual(true);
   });
 
-  // add more tests here to test the functionality of linkedList
+  it("'addToHead' should add a new node with the passed value to the head of the list'", function() {
+    linkedList.addToHead('element1');
+    expect(linkedList.head.value).toEqual('element1');
+    linkedList.addToHead('element2');
+    expect(linkedList.head.value).toEqual('element2');
+  });
+
+  it("'removeTail' should remove the last node from the list and return its value'", function() {
+    linkedList.addToTail('element1');
+    linkedList.addToTail('element2');
+    linkedList.addToTail('element3');
+    expect(linkedList.removeTail()).toEqual('element3');
+    expect(linkedList.tail.value).toEqual('element2');
+  });
 });
+
+
+
+
+
+
+
+
+

@@ -5,19 +5,42 @@ var makeLinkedList = function(){
   newLinkedList.tail = null;
 
   newLinkedList.addToTail = function(value){
-    var node = makeNode(value);
+    var newTail = makeNode(value);
+    var oldTail = newLinkedList.tail;
     if (!newLinkedList.head) {
-      newLinkedList.tail = node;
-      newLinkedList.head = node;
+      newLinkedList.tail = newTail;
+      newLinkedList.head = newTail;
     } else {
-      newLinkedList.tail.next = node;
-      newLinkedList.tail = node;
+      oldTail.next = newTail;
+      newLinkedList.tail = newTail;
+      newTail.previous = oldTail;
+    }
+  };
+
+  newLinkedList.addToHead = function(value){
+    var newHead = makeNode(value);
+    var oldHead = newLinkedList.head;
+    if (!newLinkedList.head) {
+      newLinkedList.tail = newHead;
+      newLinkedList.head = newHead;
+    } else {
+      oldHead.previous = newHead;
+      newLinkedList.head = newHead;
+      newHead.next = oldHead;
     }
   };
 
   newLinkedList.removeHead = function(){
     var temp = newLinkedList.head.value;
     newLinkedList.head = newLinkedList.head.next;
+    newLinkedList.head.previous = null;
+    return temp;
+  };
+
+  newLinkedList.removeTail = function(){
+    var temp = newLinkedList.tail.value;
+    newLinkedList.tail = newLinkedList.tail.previous;
+    newLinkedList.tail.next = null;
     return temp;
   };
 
@@ -41,7 +64,6 @@ var makeNode = function(value){
   var newNode = {};
   newNode.value = value;
   newNode.next = null;
-  // newNode.removeNextNode = function(){
-  // };
+  newNode.previous = null;
   return newNode;
 };
