@@ -21,7 +21,7 @@ treeMethods.addChild = function(value){
 treeMethods.removeFromParent = function(){
   var arr = this.parent.children;
   if (arr.length === 1) {
-    arr = undefined;
+    this.parent.children = undefined;
   } else {
     for (var i = 0; i < arr.length; i++) {
       arr[i] === this && arr.splice(i,1);
@@ -30,6 +30,9 @@ treeMethods.removeFromParent = function(){
 };
 
 treeMethods.contains = function(target){
+  return this.value === target || _.any(this.children, function(node){
+    return node.value === target || node.contains(target);
+  });
 };
 
 // treeMethods.contains = function(value){
@@ -37,8 +40,6 @@ treeMethods.contains = function(target){
 //     if (node.value ===  value){
 //       return true;
 //     } else {
-      
-
 //       if (node.children !== undefined) {
 //         for (var i = 0; i < node.children.length; i++) {
 //           return dig(node.children[i]);
