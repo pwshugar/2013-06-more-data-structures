@@ -29,11 +29,16 @@ treeMethods.removeFromParent = function(){
   }
 };
 
+treeMethods.contains = function(target){
+};
+
 // treeMethods.contains = function(value){
 //   var dig = function(node) {
 //     if (node.value ===  value){
 //       return true;
 //     } else {
+      
+
 //       if (node.children !== undefined) {
 //         for (var i = 0; i < node.children.length; i++) {
 //           return dig(node.children[i]);
@@ -46,28 +51,25 @@ treeMethods.removeFromParent = function(){
 // };
 
 
-
-treeMethods.contains = function(value){
-  var dig = function(node) {
-    if (node.value ===  value){
-      return true;
-    } else {
-      if (node.children !== undefined) {
-        for (var i = 0; i < node.children.length; i++) {
-          if (dig(node.children[i])) {
-            return true;
-          } else {
-            if (node.children[i++]){
-              dig(node.children[i++]);
-            }
-            //   else {
-            //   return false;
-            // }
-          }
-        }
-      }
-    }
-    return false;
-  };
-  return dig(this);
-};
+// treeMethods.contains = function(value){
+//   var dig = function(node) {
+//     if (node.value ===  value){
+//       return true;
+//     } else {
+//       if (node.children !== undefined) {
+//         for (var i = 0; i < node.children.length; i++) {
+//           var x = node.children[i++];
+//           if (dig(node.children[i])) {
+//             return true;
+//           } else if (node.children[i++]){
+//               dig(node.children[i++]);
+//             } else {
+//             return dig(x);
+//             }
+//           }
+//         }
+//       }
+//     return false;
+//   };
+//   return dig(this);
+// };
